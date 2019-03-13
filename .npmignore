@@ -1,9 +1,10 @@
+.idea/
+.git/
 node_modules
-coverage
-dist/test
+coverage/
+dist/
 src/
 tslint.json
-.travis.yml
 .gitignore
 .npmignore
 html-report
