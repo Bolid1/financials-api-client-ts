@@ -1,0 +1,9 @@
+node_modules
+coverage
+dist/test
+src/
+tslint.json
+.travis.yml
+.gitignore
+.npmignore
+html-report

@@ -1,0 +1,42 @@
+{
+  "name": "bolid1-financials-api-client-ts",
+  "version": "0.1.0",
+  "description": "Client for api of project financials",
+  "main": "dist/index.js",
+  "typings": "dist/index",
+  "homepage": "https://github.com/Bolid1/financials-api-client-ts#readme",
+  "bugs": {
+    "url": "https://github.com/Bolid1/financials-api-client-ts/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bolid1/financials-api-client-ts.git"
+  },
+  "author": "Valery Vargin <VDVUGaD@gmail.com>",
+  "license": "BSD-3-Clause",
+  "private": false,
+  "scripts": {
+    "lint": "tslint \"src/**/*.ts\" --project tsconfig.json",
+    "clean": "rimraf dist/",
+    "compile": "tsc",
+    "test": "tsc && tape dist/test/*.js | tap-spec",
+    "preversion": "npm run lint && npm run clean && npm run compile",
+    "prepublish": "npm run clean && npm run compile"
+  },
+  "dependencies": {
+    "hal-rest-client": "^0.5.0"
+  },
+  "devDependencies": {
+    "@types/nock": "^9.3.1",
+    "@types/node": "^11.11.0",
+    "@types/tape": "^4.2.33",
+    "@types/tape-async": "^2.3.0",
+    "nock": "^10.0.6",
+    "rimraf": "^2.6.3",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.10.1",
+    "tape-async": "^2.3.0",
+    "tslint": "^5.13.1",
+    "typescript": "^3.3.3333"
+  }
+}
