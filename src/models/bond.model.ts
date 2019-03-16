@@ -1,10 +1,11 @@
 import {HalProperty, HalResource} from 'hal-rest-client';
+import {IBond} from '../interfaces/IBond';
 import {AmortizationModel} from './amortization.model';
 import {CouponModel} from './coupon.model';
 import {CurrencyModel} from './currency.model';
 import {IssuerModel} from './issuer.model';
 
-export class BondModel extends HalResource {
+export class BondModel extends HalResource implements IBond {
     @HalProperty() public ISIN: string;
     @HalProperty(IssuerModel) public issuer: IssuerModel;
     @HalProperty(CurrencyModel) public currency: CurrencyModel;

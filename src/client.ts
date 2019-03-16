@@ -1,5 +1,6 @@
 import {HalRestClient} from 'hal-rest-client';
-import {IIssuer, IssuerModel} from './models/issuer.model';
+import {IIssuer} from './interfaces/IIssuer';
+import {IssuerModel} from './models/issuer.model';
 import {IssuersList} from './models/issuers.list';
 import {ResourcesModel} from './models/resources.model';
 
