@@ -1,4 +1,5 @@
 import {HalRestClient} from 'hal-rest-client';
+import {IIssuer, IssuerModel} from './models/issuer.model';
 import {IssuersList} from './models/issuers.list';
 import {ResourcesModel} from './models/resources.model';
 
@@ -33,5 +34,17 @@ export class Client extends HalRestClient {
             });
 
         return this.fetch('/issuers?' + String(params), IssuersList);
+    }
+
+    public fetchIssuer(id: number): Promise<IssuerModel> {
+        return this.fetch('/issuers/' + Number(id), IssuerModel);
+    }
+
+    public saveIssuer(issuer: IIssuer, full?: boolean): Promise<IssuerModel> {
+        if (!issuer.id) {
+            return this.create('/issuers', issuer, IssuerModel);
+        }
+
+        return this.update('/issuers/' + Number(issuer.id), issuer, full, IssuerModel);
     }
 }
