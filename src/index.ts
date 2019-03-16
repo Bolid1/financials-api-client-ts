@@ -1,6 +1,13 @@
 import {Client} from './client';
 
+export * from './interfaces/IAmortization';
+export * from './interfaces/IBond';
+export * from './interfaces/ICoupon';
+export * from './interfaces/ICurrency';
+export * from './interfaces/IIssuer';
+
 export * from './client';
+
 export * from './models/amortization.model';
 export * from './models/amortizations.list';
 export * from './models/bond.model';
