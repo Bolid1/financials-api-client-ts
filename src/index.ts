@@ -6,6 +6,9 @@ export * from './interfaces/ICoupon';
 export * from './interfaces/ICurrency';
 export * from './interfaces/IIssuer';
 
+export * from './interfaces/IIssuersListQueryParams';
+export * from './interfaces/IListQueryParams';
+
 export * from './client';
 
 export * from './models/amortization.model';
@@ -21,3 +24,6 @@ export * from './models/issuers.list';
 export * from './models/resources.model';
 
 export default Client;
+export {IIssuersListQueryParams} from './interfaces/IIssuersListQueryParams';
+export {IBondsListQueryParams} from './interfaces/IBondsListQueryParams';
+export {IListQueryParams} from './interfaces/IListQueryParams';

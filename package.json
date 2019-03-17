@@ -21,6 +21,7 @@
     "compile": "tsc",
     "pub": "yalc publish",
     "test": "tsc && tape dist/test/*.js | tap-spec",
+    "pretest": "yarn clean",
     "preversion": "npm run lint && npm run clean && npm run compile",
     "prepublish": "npm run clean && npm run compile"
   },

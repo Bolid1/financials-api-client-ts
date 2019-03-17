@@ -1,5 +1,5 @@
 import {HalProperty, HalResource} from 'hal-rest-client';
-import {IAmortization} from '../interfaces/IAmortization';
+import {IAmortization} from '..';
 import {BondModel} from './bond.model';
 
 export class AmortizationModel extends HalResource implements IAmortization {

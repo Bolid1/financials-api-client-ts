@@ -4,9 +4,9 @@ import {ICurrency} from './ICurrency';
 import {IIssuer} from './IIssuer';
 
 export interface IBond {
-    ISIN: string;
-    issuer: IIssuer;
-    currency: ICurrency;
+    ISIN?: string;
+    issuer?: IIssuer;
+    currency?: ICurrency;
     name: string;
     offerEnd?: Date;
     maturity: Date;
