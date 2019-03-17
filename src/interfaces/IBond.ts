@@ -8,8 +8,8 @@ export interface IBond {
     issuer?: IIssuer;
     currency?: ICurrency;
     name: string;
-    offerEnd?: Date;
-    maturity: Date;
+    offerEnd: Date | null;
+    maturity: Date | null;
     faceValue: number;
     quantity: number;
     amortizations?: IAmortization[];
