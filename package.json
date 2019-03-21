@@ -1,6 +1,6 @@
 {
   "name": "bolid1-financials-api-client-ts",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Client for api of project financials",
   "main": "dist/index.js",
   "typings": "dist/index",
@@ -15,6 +15,18 @@
   "author": "Valery Vargin <VDVUGaD@gmail.com>",
   "license": "BSD-3-Clause",
   "private": false,
+  "files": [
+    "dist/interfaces/*",
+    "dist/models/*",
+    "dist/utils/*",
+    "dist/client.d.ts",
+    "dist/client.js",
+    "dist/index.d.ts",
+    "dist/index.js",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
   "scripts": {
     "lint": "tslint \"src/**/*.ts\" --project tsconfig.json",
     "clean": "rimraf dist/",
