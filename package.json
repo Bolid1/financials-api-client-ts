@@ -1,6 +1,6 @@
 {
   "name": "bolid1-financials-api-client-ts",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Client for api of project financials",
   "main": "dist/index.js",
   "typings": "dist/index",
@@ -21,8 +21,10 @@
     "dist/utils/*",
     "dist/client.d.ts",
     "dist/client.js",
+    "dist/client.js.map",
     "dist/index.d.ts",
     "dist/index.js",
+    "dist/index.js.map",
     "LICENSE",
     "package.json",
     "README.md"
