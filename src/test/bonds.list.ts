@@ -132,4 +132,10 @@ test('fetch bonds', async t => {
     t.strictEqual(value.last.page, 8);
     t.strictEqual(value.prev.page, 1);
     t.strictEqual(value.next.page, 3);
+    for (let i = 0; i < value.items.length - 1; ++i) {
+        for (let j = i + 1; j < value.items.length; ++j) {
+            t.equal(value.items[i].currency, value.items[j].currency);
+            t.equal(value.items[i].issuer, value.items[j].issuer);
+        }
+    }
 });
