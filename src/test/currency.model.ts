@@ -10,12 +10,12 @@ const currency = {
             href: '/currencies/RUB',
         },
     },
-    id: 'RUB',
+    code: 'RUB',
     sign: '₽',
 };
 
 const newData = {
-    id: 'RUB',
+    code: 'RUB',
     sign: '$',
 };
 
@@ -41,7 +41,7 @@ test('fetch currency', async t => {
     checkCurrencyEqual(t, value, currency);
 });
 
-test('put currency', async t => {
+test('update currency', async t => {
     let called = false;
     const client = setupServer(testServer => {
         testServer.put('/currencies/' + currencyId).reply(
@@ -57,7 +57,7 @@ test('put currency', async t => {
 
     t.false(called);
     try {
-        const value = await client.saveCurrency(newData, true);
+        const value = await client.updateCurrency(newData);
 
         t.true(value instanceof CurrencyModel);
         t.true(called);
@@ -68,10 +68,10 @@ test('put currency', async t => {
     }
 });
 
-test('patch currency', async t => {
+test('create currency', async t => {
     let called = false;
     const client = setupServer(testServer => {
-        testServer.patch('/currencies/' + currencyId).reply(
+        testServer.post('/currencies').reply(
             200,
             (uri, body) => {
                 called = true;
@@ -84,7 +84,7 @@ test('patch currency', async t => {
 
     t.false(called);
     try {
-        const value = await client.saveCurrency(newData, false);
+        const value = await client.createCurrency(newData);
 
         t.true(value instanceof CurrencyModel);
         t.true(called);

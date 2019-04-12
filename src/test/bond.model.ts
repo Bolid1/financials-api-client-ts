@@ -21,7 +21,7 @@ const bond = {
     offerEnd: null,
     maturity: new Date('2019-03-13T00:00:00+00:00'),
     faceValue: 1000,
-    quantity: 0,
+    quantity: '7851632165498464231',
 };
 
 const newData = {
@@ -30,7 +30,7 @@ const newData = {
     offerEnd: new Date('2019-03-15T00:00:00+00:00'),
     maturity: new Date('2019-03-11T00:00:00+00:00'),
     faceValue: 123,
-    quantity: 523,
+    quantity: '5613215645623123154',
 };
 
 function checkBondEqual(t: test.Test, value: BondModel, equalTo: IBond) {
@@ -67,7 +67,7 @@ test('fetch bond', async t => {
     checkBondEqual(t, value, bond);
 });
 
-test('put bond', async t => {
+test('update bond', async t => {
     let called = false;
     const client = setupServer(testServer => {
         testServer.put('/bonds/' + bondISIN).reply(
@@ -83,7 +83,7 @@ test('put bond', async t => {
 
     t.false(called);
     try {
-        const value = await client.saveBond(newData, true);
+        const value = await client.updateBond(newData);
 
         t.true(value instanceof BondModel);
         t.true(called);
@@ -94,10 +94,10 @@ test('put bond', async t => {
     }
 });
 
-test('patch bond', async t => {
+test('create bond', async t => {
     let called = false;
     const client = setupServer(testServer => {
-        testServer.patch('/bonds/' + bondISIN).reply(
+        testServer.post('/bonds').reply(
             200,
             (uri, body) => {
                 called = true;
@@ -110,7 +110,7 @@ test('patch bond', async t => {
 
     t.false(called);
     try {
-        const value = await client.saveBond(newData, false);
+        const value = await client.createBond(newData);
 
         t.true(value instanceof BondModel);
         t.true(called);

@@ -11,7 +11,7 @@ export class BondModel extends HalResource implements IBond {
     @HalProperty('offerEnd') public offerEndStr?: string | null;
     @HalProperty('maturity') public maturityStr: string;
     @HalProperty() public faceValue: number;
-    @HalProperty() public quantity: number;
+    @HalProperty() public quantity: string;
 
     get offerEnd(): Date | null {
         return this.offerEndStr ? new Date(this.offerEndStr) : null;

@@ -1,4 +1,4 @@
 export interface ICurrency {
-    id: string;
+    code: string;
     sign?: string;
 }

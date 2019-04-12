@@ -50,36 +50,7 @@ test('update issuer', async t => {
 
     t.false(called);
     try {
-        const value = await client.saveIssuer(newData, true);
-
-        t.true(value instanceof IssuerModel);
-        t.true(called);
-        t.equal(value.uri.uri, '/issuers/' + issuerId);
-        t.strictEqual(value.id, newData.id);
-        t.strictEqual(value.name, newData.name);
-        t.strictEqual(value.type, newData.type);
-    } catch (exception) {
-        return t.fail(String(exception));
-    }
-});
-
-test('patch issuer', async t => {
-    let called = false;
-    const client = setupServer(testServer => {
-        testServer.patch('/issuers/' + issuerId).reply(
-            200,
-            (uri, body) => {
-                called = true;
-                t.deepEquals(body, JSON.stringify(newData));
-
-                return Object.assign(JSON.parse(JSON.stringify(issuer)), newData);
-            },
-        );
-    });
-
-    t.false(called);
-    try {
-        const value = await client.saveIssuer(newData, false);
+        const value = await client.saveIssuer(newData);
 
         t.true(value instanceof IssuerModel);
         t.true(called);

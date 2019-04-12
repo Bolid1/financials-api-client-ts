@@ -46,12 +46,12 @@ export class Client extends HalRestClient {
         return this.fetch(`/issuers/${Number(id)}`, IssuerModel);
     }
 
-    public saveIssuer(issuer: IIssuer, full?: boolean): Promise<IssuerModel> {
+    public saveIssuer(issuer: IIssuer): Promise<IssuerModel> {
         if (!issuer.id) {
             return this.create('/issuers', issuer, IssuerModel);
         }
 
-        return this.update(`/issuers/${Number(issuer.id)}`, issuer, full, IssuerModel);
+        return this.update(`/issuers/${Number(issuer.id)}`, issuer, true, IssuerModel);
     }
 
     public fetchBonds(query: IBondsListQueryParams = {}): Promise<BondsList> {
@@ -68,8 +68,12 @@ export class Client extends HalRestClient {
         return this.fetch(`/bonds/${ISIN}`, BondModel);
     }
 
-    public saveBond(bond: IBond, full?: boolean): Promise<BondModel> {
-        return this.update(`/bonds/${bond.ISIN}`, bond, full, BondModel);
+    public createBond(bond: IBond): Promise<BondModel> {
+        return this.create('/bonds', bond, BondModel);
+    }
+
+    public updateBond(bond: IBond): Promise<BondModel> {
+        return this.update(`/bonds/${bond.ISIN}`, bond, true, BondModel);
     }
 
     public fetchCurrencies(query: ICurrenciesListQueryParams = {}): Promise<CurrenciesList> {
@@ -86,7 +90,11 @@ export class Client extends HalRestClient {
         return this.fetch(`/currencies/${id}`, CurrencyModel);
     }
 
-    public saveCurrency(bond: ICurrency, full?: boolean): Promise<CurrencyModel> {
-        return this.update(`/currencies/${bond.id}`, bond, full, CurrencyModel);
+    public createCurrency(currency: ICurrency): Promise<CurrencyModel> {
+        return this.create('/currencies', currency, CurrencyModel);
+    }
+
+    public updateCurrency(currency: ICurrency): Promise<CurrencyModel> {
+        return this.update(`/currencies/${currency.code}`, currency, true, CurrencyModel);
     }
 }

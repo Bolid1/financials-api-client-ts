@@ -11,7 +11,7 @@ export interface IBond {
     offerEnd: Date | null;
     maturity: Date | null;
     faceValue: number;
-    quantity: number;
+    quantity: string;
     amortizations?: IAmortization[];
     coupons?: ICoupon[];
 }
